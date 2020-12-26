@@ -1,0 +1,15 @@
+$font-map: (
+  // Font
+);
+
+$color-map: (
+  // Color
+);
+
+@function font($key: 'primary') {
+  @return map-get($font-map, $key);
+}
+
+@function color($key: 'primary') {
+  @return map-get($color-map, $key);
+}
