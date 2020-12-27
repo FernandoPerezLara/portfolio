@@ -1,11 +1,13 @@
 import React from "react";
 import Particles from 'react-particles-js';
 
-import "../../../styles/home.scss";
-
 export default function Space() {
   return (
     <div className="section" id="space">
+      <div className="presentation">
+        <div>Hello, I'm <span>Fernando Perez</span>.</div>
+        <div>I'm a simple developer.</div>
+      </div>
       <Particles params={{
         particles: {
           number: {
@@ -59,7 +61,6 @@ export default function Space() {
         },
         retina_detect: true
       }} />
-      <p>Section 1</p>
     </div>
   );
 }

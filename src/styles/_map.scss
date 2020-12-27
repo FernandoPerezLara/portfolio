@@ -1,5 +1,6 @@
 $font-map: (
-  // Font
+  "_raleway-regular": "Raleway Regular",
+  "_raleway-semibold": "Raleway Semibold"
 );
 
 $color-map: (
@@ -12,4 +13,14 @@ $color-map: (
 
 @function color($key: 'primary') {
   @return map-get($color-map, $key);
+}
+
+@font-face {
+  font-family: "Raleway Regular";
+  src: url("../fonts/Raleway-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Raleway Semibold";
+  src: url("../fonts/Raleway-SemiBold.ttf");
 }
