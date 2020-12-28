@@ -1,13 +1,15 @@
-import React from "react";
-import Particles from 'react-particles-js';
+import React, { useState, useEffect } from "react";
+import Particles from "react-particles-js";
 
 export default function Space() {
+  const [touchable, setTouchable] = useState(true);
+
+  useEffect(() => {
+    setTouchable(("ontouchstart" in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+  }, []);
+
   return (
     <div className="section" id="space">
-      <div className="presentation">
-        <div>Hello, I'm <span>Fernando Perez</span>.</div>
-        <div>I'm a simple developer.</div>
-      </div>
       <Particles params={{
         particles: {
           number: {
@@ -53,7 +55,7 @@ export default function Space() {
           detect_on: "canvas",
           events: {
             onhover: {
-              enable: true,
+              enable: !touchable,
               mode: "grab"
             },
             resize: true
@@ -61,6 +63,10 @@ export default function Space() {
         },
         retina_detect: true
       }} />
+      <div className="presentation">
+        <div>Hello, I'm <span>Fernando Perez</span>.</div>
+        <div>I'm a simple developer.</div>
+      </div>
     </div>
   );
 }
