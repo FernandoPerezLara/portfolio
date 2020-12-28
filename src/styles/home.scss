@@ -1,31 +1,54 @@
 @import "./map";
 
 div#fullpage {
-    div#space {
-        background-image: linear-gradient(45deg, #3F3251 2%, #002025 100%);
+  div#space {
+    background-image: linear-gradient(45deg, #3F3251 2%, #002025 100%);
 
-        div#tsparticles {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-        }
-
-        div.presentation {
-            text-align: center;
-            font-size: 42px;
-            line-height: 48px;
-            color: #FFFFFF;
-
-            div > span {
-                font-family: font(_raleway-semibold);
-                color: #E31B6D;
-            }
-
-            @media screen and (max-width: 768px) {
-                font-size: 22px;
-                line-height: 26px;
-            }
-        }
+    div#tsparticles {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
     }
+
+    div.presentation {
+      text-align: center;
+      font-size: 42px;
+      line-height: 48px;
+      color: #FFFFFF;
+
+      div {
+        display: block;
+
+        span {
+          font-family: font(_raleway-semibold);
+          color: #E31B6D;
+        }
+
+        div.slotMask {
+          width: fit-content;
+          height: 48px;
+          overflow: hidden;
+          position: relative;
+          display: inline-block;
+          vertical-align: top;
+          text-align: center;
+
+          div.slotContainer {
+            position: relative;
+            display: inline-block;
+          }
+
+          @media screen and (max-width: 768px) {
+            height: 26px;
+          }
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        font-size: 22px;
+        line-height: 26px;
+      }
+    }
+  }
 }
