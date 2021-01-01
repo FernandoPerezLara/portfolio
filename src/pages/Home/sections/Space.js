@@ -14,6 +14,10 @@ export default function Space(props) {
 
   return (
     <div className="section" id="space">
+      <div className="presentation">
+        <div>Hello, I'm <span>Fernando Perez</span></div>
+        <div><SlotText /></div>
+      </div>
       <Particles params={{
         particles: {
           number: {
@@ -67,10 +71,6 @@ export default function Space(props) {
         },
         retina_detect: true
       }} />
-      <div className="presentation">
-        <div>Hello, I'm <span>Fernando Perez</span>.</div>
-        <div>I'm a <SlotText /> developer.</div>
-      </div>
       <ScrollButton fullpageApi={fullpageApi}/>
     </div>
   );

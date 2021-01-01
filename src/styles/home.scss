@@ -12,13 +12,15 @@ div#fullpage {
     }
 
     div.presentation {
-      text-align: center;
+      width: fit-content;
+      margin: 0 auto;
       font-size: 42px;
       line-height: 48px;
       color: #FFFFFF;
 
       div {
         display: block;
+        text-align: right;
 
         span {
           font-family: font(_raleway-semibold);
@@ -32,7 +34,7 @@ div#fullpage {
           position: relative;
           display: inline-block;
           vertical-align: top;
-          text-align: center;
+          text-align: right;
 
           div.slotContainer {
             position: relative;
