@@ -8,3 +8,35 @@ body {
   background-color: color(_background);
   color: color(_dedault);
 }
+
+div.scrollButtonContainer {
+  width: 100%;
+  position: absolute;
+  bottom: 15%;
+
+  div.scrollButton {
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+    border-left: 2px solid #FFFFFF;
+    border-bottom: 2px solid #FFFFFF;
+    transform: rotate(-45deg);
+    animation: scrollAnimation 1.5s infinite;
+  }
+}
+
+@keyframes scrollAnimation {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  
+  50% {
+    opacity: 1;
+  }
+  
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Particles from "react-particles-js";
 import $ from "jquery";
 
+import ScrollButton from "../../../components/ScrollButton";
+
 export default function Space() {
   const [touchable, setTouchable] = useState(true);
 
@@ -68,6 +70,7 @@ export default function Space() {
         <div>Hello, I'm <span>Fernando Perez</span>.</div>
         <div>I'm a <SlotText /> developer.</div>
       </div>
+      <ScrollButton />
     </div>
   );
 }
@@ -80,6 +83,8 @@ function SlotText() {
   useEffect(() => {
     buildSlot();
     slotHeight();
+
+    $("#slotText").height(height);
 
     function slotHeight() {
       setHeight($(".slotItem").height());
@@ -104,8 +109,6 @@ function SlotText() {
 
   const setAnimation = () => {
     var index = Math.floor(Math.random() * (wordList.length - (~~(wordList.length / 3)))) + (~~(wordList.length / 3));
-
-    $("#slotText").height(height);
 
     container.animate({top: -index*height}, 500, "swing", function() {
       setTimeout(function () {
