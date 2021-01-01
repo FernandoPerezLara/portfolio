@@ -4,7 +4,8 @@ import $ from "jquery";
 
 import ScrollButton from "../../../components/ScrollButton";
 
-export default function Space() {
+export default function Space(props) {
+  const { fullpageApi } = props;
   const [touchable, setTouchable] = useState(true);
 
   useEffect(() => {
@@ -70,7 +71,7 @@ export default function Space() {
         <div>Hello, I'm <span>Fernando Perez</span>.</div>
         <div>I'm a <SlotText /> developer.</div>
       </div>
-      <ScrollButton />
+      <ScrollButton fullpageApi={fullpageApi}/>
     </div>
   );
 }

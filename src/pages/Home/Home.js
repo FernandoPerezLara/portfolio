@@ -12,7 +12,7 @@ export default function Home() {
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
-            <Space />
+            <Space fullpageApi={fullpageApi} />
             <div className="section">
               <p>Section 2</p>
             </div>

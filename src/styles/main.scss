@@ -21,6 +21,7 @@ div.scrollButtonContainer {
     border-left: 2px solid #FFFFFF;
     border-bottom: 2px solid #FFFFFF;
     transform: rotate(-45deg);
+    cursor: pointer;
     animation: scrollAnimation 1.5s infinite;
   }
 }
