@@ -12,17 +12,23 @@ body {
 div.scrollButtonContainer {
   width: 100%;
   position: absolute;
-  bottom: 15%;
+  bottom: 8%;
 
-  div.scrollButton {
-    width: 24px;
-    height: 24px;
+  div.scrollPadding {
+    width: fit-content;
+    height: 64px;
     margin: 0 auto;
-    border-left: 2px solid #FFFFFF;
-    border-bottom: 2px solid #FFFFFF;
-    transform: rotate(-45deg);
+    padding: 20px;
     cursor: pointer;
-    animation: scrollAnimation 1.5s infinite;
+
+    div.scrollButton {
+      width: 24px;
+      height: 24px;
+      border-left: 2px solid #FFFFFF;
+      border-bottom: 2px solid #FFFFFF;
+      transform: rotate(-45deg);
+      animation: scrollAnimation 1.5s infinite;
+    }
   }
 }
 
