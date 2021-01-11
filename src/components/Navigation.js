@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Redirect, Link } from "react-router-dom";
 
 import "../styles/navigation.scss";
 
@@ -10,8 +10,47 @@ import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
 
 export default function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("keydown", function(e) {
+      if ((isOpen === true) && (e.key === "Escape")) {
+        setIsOpen(!isOpen);
+      }
+    });
+
+    window.addEventListener("scroll", function() {
+      if (isOpen === true) {
+        setIsOpen(!isOpen);
+      }
+    });
+  });
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <Router>
+      <div className={`menuButton ${isOpen ? "active" : null}`} onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav className={`mainNav ${isOpen ? "active" : null}`}>
+        <div className="navList">
+          <ul>
+            <li className="active"><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/skills">Skills</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div className="mask" style={{ display: isOpen ? "unset" : null }} onClick={toggleMenu}></div>
+
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />

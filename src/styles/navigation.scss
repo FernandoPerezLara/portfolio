@@ -1,1 +1,208 @@
 @import "./map";
+
+$menu-top: 40px;
+$menu-left: 40px;
+$menu-width: 250px;
+$menu-height: 220px + 85px;
+
+div.menuButton {
+  width: 30px;
+	height: 30px;
+  position: fixed;
+  top: $menu-top + 7px;
+  left: $menu-left;
+	float: left;
+	cursor: pointer;
+  z-index: 100;
+	transition: all 0.3s ease-out;
+
+  span {
+    width: 30px;
+    height: 2px;
+    margin-bottom: 7px;
+    display: block;
+    background-color: #FFFFFF;
+    transition: transform 0.2s ease, background-color 0.5s ease;
+
+    &:nth-child(1) {
+      width: 16.5px;
+	    transition: all 200ms linear;
+    }
+
+    &:nth-child(3) {
+      width: 16.5px;
+      float: right;
+      transition: all 200ms linear;
+    }
+  }
+
+  &:hover > span:nth-child(odd) {
+    width: 30px;
+  }
+
+  &.active > span {
+    transform: translate(0px, 0px) rotate(-45deg);
+
+    &:nth-child(1) {
+      width: 15px;
+	    transform: translate(2px, 4px) rotate(45deg);
+    }
+
+    &:nth-child(3) {
+      width: 15px;
+      transform: translate(-3px, -3.5px) rotate(45deg);
+    }
+  }
+}
+
+nav.mainNav {
+	position: fixed;
+  z-index: 98;
+
+  div.navList {
+    position: fixed;
+    top: $menu-top + 30px + 20px;
+    left: $menu-left - 18px;
+    visibility: hidden;
+
+    ul {
+      position: relative;
+      z-index: 2;
+
+      li {
+        margin: 10px 0px;
+        display: block;
+        opacity: 0; 
+        transform: translate(30px, 0%);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        transition-delay: 0.8s;
+
+        a {
+          padding: 5px 0px 5px 45px;
+          display: inline-block;
+          position: relative;
+          text-decoration: none;
+          font-size: 22px;
+          font-family: font(_raleway-semibold);
+          font-weight: 600;
+          line-height: 1.2;
+          letter-spacing: 2px;
+          color: #FFFFFF99;
+          z-index: 2;
+          transition: all 200ms linear;
+
+          &::after {
+            content: "";
+            width: 5px;
+            height: 0px;
+            position: absolute;
+            top: 50%;
+            left: 0px;
+            opacity: 0;
+            background-color: #8167A9;
+            z-index: 1;
+            transition: all 200ms linear;
+          }
+
+          &:hover {
+            color: #FFFFFF;
+
+            &::after {
+              height: 100%;
+              top: 0;
+              opacity: 1;
+            }
+          }
+        }
+
+        &.active a {
+          color: #FFFFFF;
+
+          &::after {
+            height: 100%;
+            top: 0px;
+            opacity: 1;
+          }
+        }
+
+        &:first-child {
+          margin-top: 0px;
+        }
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+
+  @mixin menu-panel {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: fixed;
+    top: $menu-top - 15px;
+    left: $menu-left - 18px;
+    border-bottom-right-radius: 200%;
+    background-color: #14151A99;
+    z-index: -1;
+    transition: border-radius linear 0.8s, width cubic-bezier(0.77, 0, 0.175, 1) 0.6s, height cubic-bezier(0.77, 0, 0.175, 1) 0.6s;
+  }
+  
+  &::before {
+    @include menu-panel;
+
+    transition-delay: 0.2s;
+  }
+
+  &::after {
+    @include menu-panel;
+
+    background-color: rgba(9, 9, 12, 1);
+    background-image: url(../assets/snakes.svg);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 300%;
+    transition-delay: 0s;
+    box-shadow: 6px 7px 28px 0px rgba(16, 16, 16, 0.3);
+  }
+
+  &.active {
+    visibility: visible;
+
+    @mixin panel-delay($delay) {
+      width: $menu-width;
+      height: $menu-height;
+      border-radius: 15px;
+      transition-delay: 0.1s;
+    }
+
+    &::before {
+      @include panel-delay(0s)
+    }
+    
+    &::after {
+      @include panel-delay(0.1s)
+    }
+
+    div.navList {
+      visibility: visible;
+
+      @mixin transition-effect {
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i}) {
+            transition-delay: #{($i*0.1) + 0.7}s;
+          }
+        }
+      }
+
+      ul > li {
+        @include transition-effect;
+
+        opacity: 1;
+        transform: translateX(0%);
+        transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+      }
+    }
+  }
+}
