@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Skills(props) {
   const { setTitle } = props;
 
-  setTitle("Skills");
+  useEffect(() => {
+    setTitle("Skills");
+  });
 
   return (
     <div>

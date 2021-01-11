@@ -14,6 +14,8 @@ export default function Navigation() {
   const [title, setTitle] = useState("Home");
 
   useEffect(() => {
+    document.title = title + " @ Fernando Perez";
+
     window.addEventListener("keydown", function(e) {
       if ((isOpen === true) && (e.key === "Escape")) {
         setIsOpen(!isOpen);
@@ -26,10 +28,6 @@ export default function Navigation() {
       }
     });
   });
-
-  useEffect(() => {
-      document.title = title + " @ Fernando Perez";
-  }, [title]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -46,10 +44,10 @@ export default function Navigation() {
       <nav className={`mainNav ${isOpen ? "active" : null}`}>
         <div className="navList">
           <ul>
-            <li className="active"><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/skills">Skills</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
+            <li className={(title === "Home") ? "active" : null}><Link to="/">Home</Link></li>
+            <li className={(title === "About") ? "active" : null}><Link to="/about">About</Link></li>
+            <li className={(title === "Skills") ? "active" : null}><Link to="/skills">Skills</Link></li>
+            <li className={(title === "Contact") ? "active" : null}><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
       </nav>
@@ -58,10 +56,10 @@ export default function Navigation() {
 
       <Switch>
         <Route exact path="/" render={() => <Home setTitle={setTitle} setIsOpen={setIsOpen} />} />
-        <Route path="/about" component={() => <About setTitle={setTitle} />} />
-        <Route path="/skills" component={() => <Skills setTitle={setTitle} />} />
-        <Route path="/contact" component={() => <Contact setTitle={setTitle} />} />
-        <Route path="/404" component={() => <NotFound setTitle={setTitle} />} />
+        <Route path="/about" render={() => <About setTitle={setTitle} />} />
+        <Route path="/skills" render={() => <Skills setTitle={setTitle} />} />
+        <Route path="/contact" render={() => <Contact setTitle={setTitle} />} />
+        <Route path="/404" render={() => <NotFound setTitle={setTitle} />} />
 
         <Redirect to="/404" />
       </Switch>

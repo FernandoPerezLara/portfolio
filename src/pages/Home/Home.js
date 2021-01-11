@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 
 import "../../styles/home.scss";
@@ -8,7 +8,9 @@ import Space from "./sections/Space.js";
 export default function Home(props) {
   const { setTitle, setIsOpen } = props;
 
-  setTitle("Home");
+  useEffect(() => {
+    setTitle("Home");
+  });
 
   return (
     <ReactFullpage

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function NotFound(props) {
   const { setTitle } = props;
   
-  setTitle("Error");
+  useEffect(() => {
+    setTitle("Error");
+  });
   
   return (
     <div>
