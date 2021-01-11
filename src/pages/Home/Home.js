@@ -5,7 +5,11 @@ import "../../styles/home.scss";
 
 import Space from "./sections/Space.js";
 
-export default function Home() {
+export default function Home(props) {
+  const { setTitle, setIsOpen } = props;
+
+  setTitle("Home");
+
   return (
     <ReactFullpage
       scrollingSpeed={1000}
@@ -25,6 +29,7 @@ export default function Home() {
           </ReactFullpage.Wrapper>
         );
       }}
+      onLeave={() => setIsOpen(false)}
     />
   );
 }

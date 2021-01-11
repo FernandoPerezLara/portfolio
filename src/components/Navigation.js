@@ -11,6 +11,7 @@ import NotFound from "../pages/NotFound";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [title, setTitle] = useState("Home");
 
   useEffect(() => {
     window.addEventListener("keydown", function(e) {
@@ -25,6 +26,10 @@ export default function Navigation() {
       }
     });
   });
+
+  useEffect(() => {
+      document.title = title + " @ Fernando Perez";
+  }, [title]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -52,11 +57,11 @@ export default function Navigation() {
       <div className="mask" style={{ display: isOpen ? "unset" : null }} onClick={toggleMenu}></div>
 
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/skills" component={Skills} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/404" component={NotFound} />
+        <Route exact path="/" render={() => <Home setTitle={setTitle} setIsOpen={setIsOpen} />} />
+        <Route path="/about" component={() => <About setTitle={setTitle} />} />
+        <Route path="/skills" component={() => <Skills setTitle={setTitle} />} />
+        <Route path="/contact" component={() => <Contact setTitle={setTitle} />} />
+        <Route path="/404" component={() => <NotFound setTitle={setTitle} />} />
 
         <Redirect to="/404" />
       </Switch>

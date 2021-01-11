@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function Skills() {
+export default function Skills(props) {
+  const { setTitle } = props;
+
+  setTitle("Skills");
+
   return (
     <div>
       <h2>Skills</h2>
