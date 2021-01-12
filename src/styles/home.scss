@@ -1,6 +1,10 @@
 @import "./map";
 
 div#fullpage {
+  div.section {
+    background-color: #1D1E21;
+  }
+  
   div#space {
     height: 100vh !important;
     background-image: linear-gradient(45deg, #3F3251 2%, #002025 100%);
@@ -8,7 +12,7 @@ div#fullpage {
     div#tsparticles {
       width: 100%;
       height: 100vh;
-      position: absolute;
+      position: fixed;
       top: 0;
     }
 
