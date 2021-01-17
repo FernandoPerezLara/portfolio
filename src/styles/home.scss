@@ -1,5 +1,9 @@
 @import "./map";
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 div.sectionContainers {
   div.section {
     background-color: #1D1E21;
