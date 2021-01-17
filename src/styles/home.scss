@@ -7,8 +7,8 @@ div.sectionContainers {
     &#space {
       width: 100%;
       height: 100vh;
-      background-image: linear-gradient(45deg, #3F3251 2%, #002025 100%);
-      box-shadow: 0px -20px 15px -9px #0000004f inset;
+      background-image: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+      box-shadow: 0px -20px 15px -9px #0000004F inset;
 
       div#tsparticles {
         width: 100%;
@@ -34,7 +34,7 @@ div.sectionContainers {
 
           span {
             font-family: font(_raleway-semibold);
-            color: #E31B6D;
+            color: #25A0FF;
           }
 
           div.slotMask {
