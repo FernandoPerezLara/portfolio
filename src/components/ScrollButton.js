@@ -8,14 +8,14 @@ export default function ScrollButton() {
     if (currentSection.index() < $(".section").length - 1) {
       $("html, body").animate({
           scrollTop: currentSection.next().offset().top
-      }, 800);
+      }, 800, "swing");
     }
   };
 
   return (
     <div className="scrollButtonContainer">
       <div className="scrollPadding" onClick={nextSection}>
-        <div className="scrollButton"></div>  
+        <div className="scrollButton"></div>
       </div>
     </div>
   );
