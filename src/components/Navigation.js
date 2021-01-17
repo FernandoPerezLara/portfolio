@@ -55,7 +55,7 @@ export default function Navigation() {
       <div className="mask" style={{ display: isOpen ? "unset" : null }} onClick={toggleMenu}></div>
 
       <Switch>
-        <Route exact path="/" render={() => <Home setTitle={setTitle} setIsOpen={setIsOpen} />} />
+        <Route exact path="/" render={() => <Home setTitle={setTitle} />} />
         <Route path="/about" render={() => <About setTitle={setTitle} />} />
         <Route path="/skills" render={() => <Skills setTitle={setTitle} />} />
         <Route path="/contact" render={() => <Contact setTitle={setTitle} />} />

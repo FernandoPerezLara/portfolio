@@ -4,8 +4,7 @@ import Particles from "react-particles-js";
 import ScrollButton from "../../../components/ScrollButton";
 import SlotText from "../../../components/SlotText";
 
-export default function Space(props) {
-  const { fullpageApi } = props;
+export default function Space() {
   const [touchable, setTouchable] = useState(true);
 
   useEffect(() => {
@@ -71,7 +70,7 @@ export default function Space(props) {
         <div>Hello, I'm <span>Fernando Perez</span></div>
         <div><SlotText /></div>
       </div>
-      <ScrollButton fullpageApi={fullpageApi}/>
+      <ScrollButton />
     </div>
   );
 }
