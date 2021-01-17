@@ -1,11 +1,20 @@
 import React from "react";
+import $ from "jquery";
 
-export default function ScrollButton(props) {
-  const { fullpageApi } = props;
+export default function ScrollButton() {
+  const nextSection = (e) => {
+    let currentSection = $(e.currentTarget).parents(".section");
+
+    if (currentSection.index() < $(".section").length - 1) {
+      $("html, body").animate({
+          scrollTop: currentSection.next().offset().top
+      }, 800, "swing");
+    }
+  };
 
   return (
     <div className="scrollButtonContainer">
-      <div className="scrollPadding" onClick={() => fullpageApi.moveSectionDown()}>
+      <div className="scrollPadding" onClick={nextSection}>
         <div className="scrollButton"></div>
       </div>
     </div>
