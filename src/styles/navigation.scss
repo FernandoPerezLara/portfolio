@@ -159,10 +159,6 @@ nav.mainNav {
     @include menu-panel;
 
     background-color: rgba(9, 9, 12, 1);
-    background-image: url(../assets/snakes.svg);
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    background-size: 300%;
     transition-delay: 0s;
     box-shadow: 6px 7px 28px 0px rgba(16, 16, 16, 0.3);
   }
