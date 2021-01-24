@@ -10,7 +10,7 @@ export default function Home(props) {
 
   const [springProps, set] = useSpring(() => ({ y: 0, config: { mass: 1, tension: 500, friction: 200, clamp: true } }));
 
-  const interScroll = interpolate(springProps.y, y => `translate3d(0,${y}px,0)`);
+  const interScroll = interpolate(springProps.y, y => `translate3d(0, ${y}px, 0)`);
 
   useEffect(() => {
     setTitle("Home");

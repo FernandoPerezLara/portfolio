@@ -4,6 +4,7 @@ div.sectionContainers {
   will-change: transform;
 
   div.section {
+    position: relative;
     background-color: #1D1E21;
 
     &#space {
