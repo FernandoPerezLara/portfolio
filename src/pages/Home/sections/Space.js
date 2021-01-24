@@ -6,9 +6,14 @@ import SlotText from "../../../components/SlotText";
 
 export default function Space() {
   const [touchable, setTouchable] = useState(true);
+  const [presentationOffset, setPresentationOffset] = useState(0);
 
   useEffect(() => {
     setTouchable(("ontouchstart" in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+
+    window.addEventListener("scroll", function() {
+      setPresentationOffset(-window.pageYOffset * 0.5);
+    });
   }, []);
 
   return (
@@ -66,7 +71,7 @@ export default function Space() {
         },
         retina_detect: true
       }} />
-      <div className="presentation">
+      <div className="presentation" style={{ transform: `translateY(calc(${presentationOffset}px - 50%))` }}>
         <div>Hello, I'm <span>Fernando Perez</span></div>
         <div><SlotText /></div>
       </div>
