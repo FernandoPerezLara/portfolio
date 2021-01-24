@@ -1,6 +1,10 @@
 @import "./initialize";
 @import "./map";
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   font-family: font(_raleway-regular);
   font-size: 15px;
