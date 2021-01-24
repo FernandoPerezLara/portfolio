@@ -8,13 +8,19 @@ export default function Space() {
   const [touchable, setTouchable] = useState(true);
   const [presentationOffset, setPresentationOffset] = useState(0);
 
+  const offsetListener = () => {
+    setPresentationOffset(window.pageYOffset * 0.2);
+  };
+
   useEffect(() => {
     setTouchable(("ontouchstart" in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
-
-    window.addEventListener("scroll", function() {
-      setPresentationOffset(-window.pageYOffset * 0.5);
-    });
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", offsetListener);
+
+    return () => window.removeEventListener("scroll", offsetListener);
+  }, [presentationOffset]);
 
   return (
     <div className="section" id="space">
