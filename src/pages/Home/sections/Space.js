@@ -1,26 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Particles from "react-particles-js";
+import { useSpring, animated, interpolate } from "react-spring";
 
 import ScrollButton from "../../../components/ScrollButton";
 import SlotText from "../../../components/SlotText";
 
 export default function Space() {
   const [touchable, setTouchable] = useState(true);
-  const [presentationOffset, setPresentationOffset] = useState(0);
 
-  const offsetListener = () => {
-    setPresentationOffset(window.pageYOffset * 0.2);
-  };
+  const [props, set] = useSpring(() => ({ y: 0, config: { mass: 1, tension: 500, friction: 10, clamp: true } }));
+  const onScroll = useCallback(() => set({ y: window.pageYOffset }), [set])
+  
+  const interParallax = interpolate(props.y, (y) => `translateY(calc(${y * 0.3}px - 50%))`);
 
   useEffect(() => {
     setTouchable(("ontouchstart" in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", offsetListener);
+    window.addEventListener("scroll", onScroll);
 
-    return () => window.removeEventListener("scroll", offsetListener);
-  }, [presentationOffset]);
+    return () => window.removeEventListener("scroll", onScroll);
+  });
 
   return (
     <div className="section" id="space">
@@ -77,10 +78,10 @@ export default function Space() {
         },
         retina_detect: true
       }} />
-      <div className="presentation" style={{ transform: `translateY(calc(${presentationOffset}px - 50%))` }}>
+      <animated.div className="presentation"  style={{ transform: interParallax }}>
         <div>Hello, I'm <span>Fernando Perez</span></div>
         <div><SlotText /></div>
-      </div>
+      </animated.div>
       <ScrollButton />
     </div>
   );

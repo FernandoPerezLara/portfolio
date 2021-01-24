@@ -25,6 +25,7 @@ div.sectionContainers {
         line-height: 48px;
         color: #FFFFFF;
         cursor: default;
+        will-change: transform;
         transform: translate(0, -50%);
 
         div {
