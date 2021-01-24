@@ -1,6 +1,8 @@
 @import "./map";
 
 div.sectionContainers {
+  will-change: transform;
+
   div.section {
     background-color: #1D1E21;
 

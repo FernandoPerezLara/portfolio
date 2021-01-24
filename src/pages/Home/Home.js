@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useSpring, animated, interpolate } from "react-spring";
 
 import "../../styles/home.scss";
 
@@ -7,12 +8,24 @@ import Space from "./sections/Space.js";
 export default function Home(props) {
   const { setTitle } = props;
 
+  const [springProps, set] = useSpring(() => ({ y: 0, config: { mass: 1, tension: 500, friction: 200, clamp: true } }));
+
+  const interScroll = interpolate(springProps.y, y => `translate3d(0,${y}px,0)`);
+
   useEffect(() => {
     setTitle("Home");
   });
 
+  useEffect(() => {
+    const onScroll = () => set({ y: [-window.pageYOffset] });
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [set]);
+
   return (
-    <div className="sectionContainers">
+    <animated.div className="sectionContainers" style={{ transform: interScroll }}>
       <Space />
 
       <div className="section">
@@ -37,6 +50,6 @@ export default function Home(props) {
         <div style={{height: "100px"}}>Some text 19</div>
         <div style={{height: "100px"}}>Some text 20</div>
       </div>
-    </div>
+    </animated.div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import Particles from "react-particles-js";
 import { useSpring, animated, interpolate } from "react-spring";
 
@@ -8,16 +8,17 @@ import SlotText from "../../../components/SlotText";
 export default function Space() {
   const [touchable, setTouchable] = useState(true);
 
-  const [props, set] = useSpring(() => ({ y: 0, config: { mass: 1, tension: 500, friction: 10, clamp: true } }));
-  const onScroll = useCallback(() => set({ y: window.pageYOffset }), [set])
+  const [springProps, set] = useSpring(() => ({ y: 0, config: { mass: 1, tension: 500, friction: 10, clamp: true } }));
   
-  const interParallax = interpolate(props.y, (y) => `translateY(calc(${y * 0.3}px - 50%))`);
+  const interParallax = interpolate(springProps.y, (y) => `translateY(calc(${y * 0.3}px - 50%))`);
 
   useEffect(() => {
     setTouchable(("ontouchstart" in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
   }, []);
 
   useEffect(() => {
+    const onScroll = () => set({ y: [window.pageYOffset] });
+
     window.addEventListener("scroll", onScroll);
 
     return () => window.removeEventListener("scroll", onScroll);
