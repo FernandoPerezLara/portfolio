@@ -3,7 +3,7 @@ import $ from "jquery";
 
 export default function SlotText() {
   const wordList = ["React", "Python", "C#", "NodeJS", "JavaScript", "React Native", "C", "Visual Basic", "Arduino", "MATLAB", "SQL", "Angular", "R", "Verilog", "Go", "TypeScript", "Tensorflow"];
-  const container = $("#slotText .slotContainer");
+  const container = $(".slotContainer");
   const [height, setHeight] = useState(48);
 
   useEffect(() => {
