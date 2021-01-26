@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import "../../styles/home.scss";
 
 import Space from "./sections/Space.js";
+import Earth from "./sections/Earth.js";
 
 export default function Home(props) {
   const { setTitle } = props;
@@ -14,6 +15,7 @@ export default function Home(props) {
   return (
     <div className="sectionContainers">
       <Space />
+      <Earth />
 
       <div className="section">
         <div style={{height: "100px"}}>Some text 1</div>
