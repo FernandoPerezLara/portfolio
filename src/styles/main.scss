@@ -5,8 +5,8 @@ body {
   font-family: font(_raleway-regular);
   font-size: 15px;
   line-height: 1.42857143;
-  background-color: #1D1E21;
-  color: #FFFFFF;
+  background-color: color(_background);
+  color: color(_default);
 }
 
 div.scrollButtonContainer {
@@ -30,6 +30,16 @@ div.scrollButtonContainer {
       animation: scrollAnimation 1.5s infinite;
     }
   }
+}
+
+div.mask {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 90;
 }
 
 @keyframes scrollAnimation {

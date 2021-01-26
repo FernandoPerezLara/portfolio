@@ -99,7 +99,7 @@ nav.mainNav {
             top: 50%;
             left: 0px;
             opacity: 0;
-            background-color: #25A0FF9E;
+            background-color: color(_corporative);
             z-index: 1;
             transition: all 200ms linear;
           }
@@ -110,7 +110,7 @@ nav.mainNav {
             &::after {
               height: 100%;
               top: 0;
-              opacity: 1;
+              opacity: 62%;
             }
           }
         }
@@ -121,7 +121,7 @@ nav.mainNav {
           &::after {
             height: 100%;
             top: 0px;
-            opacity: 1;
+            opacity: 62%;
           }
         }
 
@@ -158,9 +158,9 @@ nav.mainNav {
   &::after {
     @include menu-panel;
 
-    background-color: rgba(9, 9, 12, 1);
+    background-color: #09090C;
     transition-delay: 0s;
-    box-shadow: 6px 7px 28px 0px rgba(16, 16, 16, 0.3);
+    box-shadow: 6px 7px 28px 0px #1010104D;
   }
 
   &.active {

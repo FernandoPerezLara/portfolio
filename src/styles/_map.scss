@@ -4,7 +4,9 @@ $font-map: (
 );
 
 $color-map: (
-  // Color
+  "_background": #1D1E21,
+  "_default": #FFFFFF,
+  "_corporative": #25A0FF
 );
 
 @function font($key: 'primary') {

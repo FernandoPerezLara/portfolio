@@ -2,7 +2,7 @@
 
 div.sectionContainers {
   div.section {
-    background-color: #1D1E21;
+    background-color: color(_background);
 
     &#space {
       width: 100%;
@@ -23,7 +23,7 @@ div.sectionContainers {
         top: 50%;
         font-size: 42px;
         line-height: 48px;
-        color: #FFFFFF;
+        color: color(_default);
         cursor: default;
         transform: translate(0, -50%);
 
@@ -33,7 +33,7 @@ div.sectionContainers {
 
           span {
             font-family: font(_raleway-semibold);
-            color: #25A0FF;
+            color: color(_corporative);
           }
 
           div.slotMask {
@@ -63,14 +63,4 @@ div.sectionContainers {
       }
     }
   }
-}
-
-div.mask {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 90;
 }
