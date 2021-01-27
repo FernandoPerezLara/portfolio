@@ -2,6 +2,9 @@
 /node_modules
 yarn.lock
 
+# build
+/build
+
 # cache
 .eslintcache
 
