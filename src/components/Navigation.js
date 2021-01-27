@@ -42,7 +42,7 @@ export default function Navigation() {
       </div>
 
       <nav className={`mainNav ${isOpen ? "active" : null}`}>
-        <div className="navList">
+        <div className="navList" onClick={() => setIsOpen(false)}>
           <ul>
             <li className={(title === "Home") ? "active" : null}><Link to="/">Home</Link></li>
             <li className={(title === "About") ? "active" : null}><Link to="/about">About</Link></li>
