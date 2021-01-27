@@ -2,26 +2,29 @@ import React, { useState, useEffect } from "react";
 import $ from "jquery";
 
 export default function SlotText() {
-  const wordList = ["React", "Python", "C#", "NodeJS", "JavaScript", "React Native", "C", "Visual Basic", "Arduino", "MATLAB", "SQL", "Angular", "R", "Verilog", "Go", "TypeScript", "Tensorflow"];
-  const container = $(".slotContainer");
   const [height, setHeight] = useState(48);
-
+  
+  const container = $(".slotContainer");
+  
+  const wordList = ["React", "Python", "C#", "NodeJS", "JavaScript", "React Native", "C", "Visual Basic", "Arduino", "MATLAB", "SQL", "Angular", "R", "Verilog", "Go", "TypeScript", "Tensorflow"];
+  
   useEffect(() => {
     buildSlot();
-    slotHeight();
-
-    $("#slotText").height(height);
-
-    function slotHeight() {
-      setHeight($(".slotItem").height());
-    }
-
-    window.addEventListener("resize", slotHeight);
 
     const interval = setInterval(setAnimation, 2000);
 
     return () => clearInterval(interval);
   });
+
+  useEffect(() => {
+    window.addEventListener("resize", slotHeight());
+
+    return () => window.removeEventListener("resize", slotHeight());
+  });
+
+  const slotHeight = () => {
+    setHeight($(".slotMask").height());
+  };
 
   const buildSlot = () => {
     const items = wordList.map(buildItem);
