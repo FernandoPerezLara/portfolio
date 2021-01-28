@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import "../../styles/home.scss";
 
-import Space from "./sections/Space.js";
+import Space from "./sections/Space";
 
 export default function Home(props) {
   const { setTitle } = props;
