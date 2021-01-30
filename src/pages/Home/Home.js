@@ -9,7 +9,7 @@ export default function Home(props) {
 
   useEffect(() => {
     setTitle("Home");
-  });
+  }, [setTitle]);
 
   return (
     <div className="sectionContainers">

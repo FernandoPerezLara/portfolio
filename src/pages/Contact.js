@@ -5,7 +5,7 @@ export default function Contact(props) {
   
   useEffect(() => {
     setTitle("Contact");
-  });
+  }, [setTitle]);
   
   return (
     <div>

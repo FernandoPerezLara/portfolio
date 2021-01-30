@@ -5,7 +5,7 @@ export default function Skills(props) {
 
   useEffect(() => {
     setTitle("Skills");
-  });
+  }, [setTitle]);
 
   return (
     <div>

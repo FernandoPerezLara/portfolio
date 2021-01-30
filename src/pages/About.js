@@ -5,7 +5,7 @@ export default function About(props) {
   
   useEffect(() => {
     setTitle("About");
-  });
+  }, [setTitle]);
   
   return (
     <div>

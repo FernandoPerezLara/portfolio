@@ -5,7 +5,7 @@ export default function NotFound(props) {
   
   useEffect(() => {
     setTitle("Error");
-  });
+  }, [setTitle]);
   
   return (
     <div>
