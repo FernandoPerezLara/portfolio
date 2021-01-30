@@ -6,10 +6,21 @@ import SlotText from "../../../components/SlotText";
 
 export default function Space() {
   const [touchable, setTouchable] = useState(true);
+  const [presentationOpacity, setPresentationOpacity] = useState(100);
 
   useEffect(() => {
     setTouchable(("ontouchstart" in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
   }, []);
+  
+  useEffect(() => {
+    window.addEventListener("scroll", changeOpacity);
+
+    return () => window.removeEventListener("scroll", changeOpacity());
+  }, []);
+
+  const changeOpacity = () => {
+    setPresentationOpacity((-2*window.pageYOffset/window.innerHeight) + 1);
+  };
 
   return (
     <div className="section" id="space">
@@ -66,7 +77,7 @@ export default function Space() {
         },
         retina_detect: true
       }} />
-      <div className="presentation">
+      <div className="presentation" style={{ opacity: presentationOpacity }}>
         <div>Hello, I'm <span>Fernando Perez</span></div>
         <div><SlotText /></div>
       </div>
