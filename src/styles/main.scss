@@ -2,10 +2,11 @@
 @import "./map";
 
 body {
+  min-height: 100vh;
   font-family: font(_raleway-regular);
   font-size: 15px;
   line-height: 1.42857143;
-  background-color: color(_background);
+  background-image: color(_background);
   color: color(_default);
 }
 
