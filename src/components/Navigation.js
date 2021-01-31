@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect, Link } from "react-ro
 
 import "../styles/navigation.scss";
 
-import Home from "../pages/Home/Home";
+import Home from "../pages/Home";
 import About from "../pages/About";
 import Skills from "../pages/Skills";
 import Contact from "../pages/Contact";
