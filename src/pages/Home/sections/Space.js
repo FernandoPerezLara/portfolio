@@ -13,9 +13,9 @@ export default function Space() {
   }, []);
   
   useEffect(() => {
-    window.addEventListener("scroll", changeOpacity);
-
-    return () => window.removeEventListener("scroll", changeOpacity());
+    window.addEventListener("scroll", changeOpacity, { passive: true });
+    
+    return () => window.removeEventListener("scroll", changeOpacity);
   }, []);
 
   const changeOpacity = () => {
