@@ -1,66 +1,59 @@
 @import "./map";
 
-div.sectionContainers {
-  div.section {
-    background-color: color(_background);
+div.container {
+  width: 100%;
+  height: 100vh;
 
-    &#space {
-      width: 100%;
-      height: 100vh;
-      background-image: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  div#tsparticles {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+  }
 
-      div#tsparticles {
-        width: 100%;
-        height: 100vh;
-        position: absolute;
-        top: 0;
+  div.presentation {
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    font-size: 42px;
+    line-height: 48px;
+    color: color(_default);
+    cursor: default;
+    transform: translate(0, -50%);
+
+    div {
+      display: block;
+      text-align: right;
+
+      span {
+        font-family: font(_raleway-semibold);
+        color: color(_corporative);
       }
 
-      div.presentation {
+      div.slotMask {
         width: fit-content;
-        margin: 0 auto;
+        height: 48px;
+        overflow: hidden;
         position: relative;
-        top: 50%;
-        font-size: 42px;
-        line-height: 48px;
-        color: color(_default);
-        cursor: default;
-        transform: translate(0, -50%);
+        display: inline-block;
+        vertical-align: top;
+        text-align: right;
 
-        div {
-          display: block;
-          text-align: right;
-
-          span {
-            font-family: font(_raleway-semibold);
-            color: color(_corporative);
-          }
-
-          div.slotMask {
-            width: fit-content;
-            height: 48px;
-            overflow: hidden;
-            position: relative;
-            display: inline-block;
-            vertical-align: top;
-            text-align: right;
-
-            div.slotContainer {
-              position: relative;
-              display: inline-block;
-            }
-
-            @media screen and (max-width: 768px) {
-              height: 26px;
-            }
-          }
+        div.slotContainer {
+          position: relative;
+          display: inline-block;
         }
 
         @media screen and (max-width: 768px) {
-          font-size: 22px;
-          line-height: 26px;
+          height: 26px;
         }
       }
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: 22px;
+      line-height: 26px;
     }
   }
 }
