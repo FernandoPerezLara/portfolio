@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Particles from "react-particles-js";
 
-import SlotText from "../components/SlotText";
+import TypeText from "../components/TypeText";
 
 import "../styles/home.scss";
 
@@ -74,8 +74,8 @@ export default function Home(props) {
         retina_detect: true
       }} />
       <div className="presentation">
-        <div>Hello, I'm <span>Fernando Perez</span></div>
-        <div><SlotText /></div>
+        <div>Hello, I'm <span className="name">Fernando Perez</span></div>
+        <div><TypeText /></div>
       </div>
     </div>
   );
