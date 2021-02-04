@@ -30,11 +30,49 @@ div.container {
         font-family: font(_raleway-semibold);
         color: color(_corporative);
       }
+
+      span.typewriter {
+        display: inline-flex;
+
+        &::after {
+          content: "";
+          width: 3px;
+          height: 1em;
+          margin-left: 5px;
+          display: inline-block;
+          background-color: color(_default);
+          animation-name: blink;
+          animation-duration: 0.5s;
+          animation-iteration-count: infinite;
+
+          @media screen and (max-width: 768px) {
+            width: 2px;
+          }
+        }
+      }
     }
 
     @media screen and (max-width: 768px) {
       font-size: 22px;
       line-height: 26px;
     }
+  }
+}
+
+@keyframes blink {
+  0% {
+      opacity: 1;
+  }
+
+  49% {
+      opacity: 1;
+  }
+
+  50% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 0;
   }
 }

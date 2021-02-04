@@ -37,6 +37,6 @@ export default function TypeText() {
   });
 
   return (
-    <span>and I love {word}</span>
+    <span className="typewriter">and I love {word}</span>
   );
 }
