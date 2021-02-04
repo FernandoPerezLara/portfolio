@@ -26,28 +26,9 @@ div.container {
       display: block;
       text-align: right;
 
-      span {
+      span.name {
         font-family: font(_raleway-semibold);
         color: color(_corporative);
-      }
-
-      div.slotMask {
-        width: fit-content;
-        height: 48px;
-        overflow: hidden;
-        position: relative;
-        display: inline-block;
-        vertical-align: top;
-        text-align: right;
-
-        div.slotContainer {
-          position: relative;
-          display: inline-block;
-        }
-
-        @media screen and (max-width: 768px) {
-          height: 26px;
-        }
       }
     }
 
