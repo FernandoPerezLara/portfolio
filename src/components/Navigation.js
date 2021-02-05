@@ -13,29 +13,25 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [title, setTitle] = useState("Home");
 
+  const keydownListener = e => {
+    if ((isOpen === true) && (e.key === "Escape")) {
+      setIsOpen(!isOpen);
+    }
+  };
+
   useEffect(() => {
     document.title = title + " @ Fernando Perez";
-
-    window.addEventListener("keydown", function(e) {
-      if ((isOpen === true) && (e.key === "Escape")) {
-        setIsOpen(!isOpen);
-      }
-    });
-
-    window.addEventListener("scroll", function() {
-      if (isOpen === true) {
-        setIsOpen(!isOpen);
-      }
-    });
   });
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  useEffect(() => {
+    window.addEventListener("keydown", keydownListener);
+
+    return () => window.removeEventListener("keydown", keydownListener);
+  });
 
   return (
     <Router>
-      <div className={`menuButton ${isOpen ? "active" : null}`} onClick={toggleMenu}>
+      <div className={`menuButton ${isOpen ? "active" : null}`} onClick={() => setIsOpen(!isOpen)}>
         <span></span>
         <span></span>
         <span></span>
@@ -51,8 +47,6 @@ export default function Navigation() {
           </ul>
         </div>
       </nav>
-
-      <div className="mask" style={{ display: isOpen ? "unset" : null }} onClick={toggleMenu}></div>
 
       <Switch>
         <Route exact path="/" render={() => <Home setTitle={setTitle} />} />
