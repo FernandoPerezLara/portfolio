@@ -33,16 +33,6 @@ div.scrollButtonContainer {
   }
 }
 
-div.mask {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 90;
-}
-
 @keyframes scrollAnimation {
   0% {
     transform: rotate(-45deg) translate(0, 0);
