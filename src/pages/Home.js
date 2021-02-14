@@ -74,8 +74,13 @@ export default function Home(props) {
         retina_detect: true
       }} />
       <div className="presentation">
-        <div>Hello, I'm <span className="name">Fernando Perez</span></div>
-        <div><TypeText /></div>
+        <div className="name-header">
+          <div>Hello, I'm <span className="name">Fernando Perez</span></div>
+          <div><TypeText /></div>
+        </div>
+        <div className="description">
+          <p>My passion is designing and developing applications to translate complex problems into simple solutions.</p>
+        </div>
       </div>
     </div>
   );

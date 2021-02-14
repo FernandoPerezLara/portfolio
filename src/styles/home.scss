@@ -12,49 +12,66 @@ div.container {
   }
 
   div.presentation {
-    width: fit-content;
-    margin: 0 auto;
-    position: relative;
-    top: 50%;
-    font-size: 42px;
-    line-height: 48px;
+    left: 15%;
+    position: absolute;
+    bottom: 15%;
     color: color(_default);
     cursor: default;
-    transform: translate(0, -50%);
 
-    div {
-      display: block;
-      text-align: right;
+    div.name-header {
+      width: fit-content;
+      font-size: 42px;
+      line-height: 48px;
 
-      span.name {
-        font-family: font(_raleway-semibold);
-        color: color(_corporative);
-      }
+      div {
+        display: block;
 
-      span.typewriter {
-        display: inline-flex;
+        span.name {
+          font-family: font(_raleway-semibold);
+          color: color(_corporative);
+        }
 
-        &::after {
-          content: "";
-          width: 3px;
-          height: 1em;
-          margin-left: 5px;
-          display: inline-block;
-          background-color: color(_default);
-          animation-name: blink;
-          animation-duration: 0.5s;
-          animation-iteration-count: infinite;
+        span.typewriter {
+          display: inline-flex;
 
-          @media screen and (max-width: 768px) {
-            width: 2px;
+          &::after {
+            content: "";
+            width: 3px;
+            height: 1em;
+            margin-left: 5px;
+            display: inline-block;
+            background-color: color(_default);
+            animation-name: blink;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+
+            @media screen and (max-width: 768px) {
+              width: 2px;
+            }
           }
         }
       }
+
+      @media screen and (max-width: 768px) {
+        font-size: 22px;
+        line-height: 26px;
+      }
     }
 
-    @media screen and (max-width: 768px) {
-      font-size: 22px;
-      line-height: 26px;
+    div.description {
+      margin-top: 20px;
+      display: flex;
+      font-size: 20px;
+      color: #FFFFFFA8;
+
+      p {
+        width: 0;
+        flex-grow: 1;
+      }
+
+      @media screen and (max-width: 768px) {
+        font-size: 16px;
+      }
     }
   }
 }
